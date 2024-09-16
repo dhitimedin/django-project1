@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from core.views import current_datetime, hours_ahead
-from books.views import search, contact, add_publisher, add_author, add_book
+from books.views import search, contact, add_publisher, add_author, add_book, book_list, author_list, publisher_list, contact_thanks
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,9 +28,13 @@ urlpatterns = [
     path('time/', current_datetime, name='current_datetime'),
     path('search/', search, name='search'),  # Added name for reverse URL lookup
     path('contact/', contact, name='contact'),  # Added name for reverse URL lookup
-    path('add_publisher/', add_publisher, name='add_publisher'),
-    path('add_author/', add_author, name='add_author'),
-    path('add_book/', add_book, name='add_book'),
+    path('books/add/', add_book, name='add_book'),
+    path('authors/add/', add_author, name='add_author'),
+    path('publishers/add/', add_publisher, name='add_publisher'),
+    path('books/', book_list, name='book_list'),
+    path('authors/', author_list, name='author_list'),
+    path('publishers/', publisher_list, name='publisher_list'),
+    path('contact/thanks/', contact_thanks, name='contact_thanks'),
     re_path(r'^time/plus/(?P<hours>[0-9]{1,2})/$', hours_ahead, name='hours_ahead'),
 ]
 

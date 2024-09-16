@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from books.models import Book
 # from books.forms import ContactForm
 from books.forms import PublisherForm, AuthorForm, BookForm, ContactForm
+from books.models import Book, Author, Publisher
 
 def search(request):
     query = request.GET.get('q', '')
@@ -78,6 +79,21 @@ def add_book(request):
         form = BookForm()
 
     return render(request, 'contact/add_book.html', {'form': form})
+
+def book_list(request):
+    books = Book.objects.all()
+    return render(request, 'contact/book_list.html', {'books': books})
+
+def author_list(request):
+    authors = Author.objects.all()
+    return render(request, 'contact/author_list.html', {'authors': authors})
+
+def publisher_list(request):
+    publishers = Publisher.objects.all()
+    return render(request, 'contact/publisher_list.html', {'publishers': publishers})
+
+def contact_thanks(request):
+    return render(request, 'contact/thanks.html')
 
 
 # Create your views here.

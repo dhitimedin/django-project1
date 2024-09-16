@@ -1,0 +1,16 @@
+<!-- templates/contact/publisher_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Publisher List</title>
+</head>
+<body>
+    <h1>Publishers</h1>
+    <ul>
+        {% for publisher in publishers %}
+            <li>{{ publisher.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_publisher' %}">Add a new Publisher</a>
+</body>
+</html>

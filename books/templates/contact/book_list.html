@@ -1,0 +1,16 @@
+<!-- templates/contact/book_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.publisher.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_book' %}">Add a new Book</a>
+</body>
+</html>
