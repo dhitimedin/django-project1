@@ -26,9 +26,10 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    authors = models.ManyToManyField(Author, related_name='books')
-    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, related_name='books')
+    authors = models.ManyToManyField('Author', related_name='books')
+    publisher = models.ForeignKey('Publisher', on_delete=models.CASCADE, related_name='books')
     publication_date = models.DateField()
+    cover = models.ImageField(upload_to='book_covers/', blank=True, null=True)  # New field for the book cover
 
     def __str__(self):
         return self.title

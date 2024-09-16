@@ -70,10 +70,10 @@ def add_author(request):
 
 def add_book(request):
     if request.method == 'POST':
-        form = BookForm(request.POST)
+        form = BookForm(request.POST, request.FILES)  # Include request.FILES for image upload
         if form.is_valid():
             form.save()
-            return redirect('book_list')  # Change as per your URL names
+            return redirect('book_list')  # Replace with your redirect URL
     else:
         form = BookForm()
 

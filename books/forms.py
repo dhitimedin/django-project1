@@ -33,10 +33,10 @@ class AuthorForm(forms.ModelForm):
         fields = '__all__'
 
 class BookForm(forms.ModelForm):
-    publication_date = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date'})  # HTML5 date picker
-    )
-
     class Meta:
         model = Book
         fields = '__all__'
+        widgets = {
+            'title': forms.TextInput(attrs={'placeholder': 'Enter book title'}),
+            'publication_date': forms.DateInput(attrs={'type': 'date'}),
+        }
