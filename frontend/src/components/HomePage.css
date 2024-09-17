@@ -1,0 +1,48 @@
+/* src/components/HomePage.css */
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .book-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    padding: 15px;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+
+  .book-card:hover {
+    transform: scale(1.05);
+  }
+
+  .book-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .book-card h3 {
+    margin: 10px 0;
+  }
+
+  .book-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+
+  .book-card a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .book-card a:hover {
+    text-decoration: underline;
+  }

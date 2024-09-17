@@ -9,7 +9,7 @@ from books.models import Book
 # from books.forms import ContactForm
 from books.forms import PublisherForm, AuthorForm, BookForm, ContactForm
 from books.models import Book, Author, Publisher
-from books.serializers import BookSerializer, AuthorSerializer, PublisherSerializer
+from books.serializers import BookListSerializer, BookDetailSerializer, AuthorSerializer, PublisherSerializer
 
 def search(request):
     query = request.GET.get('q', '')
@@ -97,15 +97,19 @@ def publisher_list(request):
 def contact_thanks(request):
     return render(request, 'contact/thanks.html')
 
-class BookListCreateView(generics.ListCreateAPIView):
+class BookListView(generics.ListAPIView):
     queryset = Book.objects.all()
-    serializer_class = BookSerializer
+    serializer_class = BookListSerializer
 
-class AuthorListCreateView(generics.ListCreateAPIView):
+class BookDetailView(generics.RetrieveAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookDetailSerializer
+
+class AuthorDetailView(generics.RetrieveAPIView):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
-class PublisherListCreateView(generics.ListCreateAPIView):
+class PublisherDetailView(generics.RetrieveAPIView):
     queryset = Publisher.objects.all()
     serializer_class = PublisherSerializer
 
