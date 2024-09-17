@@ -1,10 +1,9 @@
-// src/components/BookDetail.js
-
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 
 const BookDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [book, setBook] = useState(null);
 
   useEffect(() => {
@@ -12,6 +11,10 @@ const BookDetail = () => {
       .then(response => response.json())
       .then(data => setBook(data));
   }, [id]);
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
 
   if (!book) return <div>Loading...</div>;
 
@@ -34,6 +37,7 @@ const BookDetail = () => {
           {book.publisher.name}
         </Link>
       </p>
+      <button onClick={handleBackClick} className="back-button">Back to Home</button>
     </div>
   );
 };

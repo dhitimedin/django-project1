@@ -1,10 +1,9 @@
-// src/components/PublisherDetail.js
-
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const PublisherDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [publisher, setPublisher] = useState(null);
 
   useEffect(() => {
@@ -13,12 +12,17 @@ const PublisherDetail = () => {
       .then(data => setPublisher(data));
   }, [id]);
 
+  const handleBackClick = () => {
+    navigate('/');
+  };
+
   if (!publisher) return <div>Loading...</div>;
 
   return (
     <div className="publisher-detail">
       <h1>{publisher.name}</h1>
       <p><strong>Website:</strong> <a href={publisher.website}>{publisher.website}</a></p>
+      <button onClick={handleBackClick} className="back-button">Back to Home</button>
     </div>
   );
 };
