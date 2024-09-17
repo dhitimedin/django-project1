@@ -4,10 +4,12 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.db.models import Q
 from django.core.mail import send_mail
+from rest_framework import generics
 from books.models import Book
 # from books.forms import ContactForm
 from books.forms import PublisherForm, AuthorForm, BookForm, ContactForm
 from books.models import Book, Author, Publisher
+from books.serializers import BookSerializer, AuthorSerializer, PublisherSerializer
 
 def search(request):
     query = request.GET.get('q', '')
@@ -94,6 +96,18 @@ def publisher_list(request):
 
 def contact_thanks(request):
     return render(request, 'contact/thanks.html')
+
+class BookListCreateView(generics.ListCreateAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+
+class AuthorListCreateView(generics.ListCreateAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+class PublisherListCreateView(generics.ListCreateAPIView):
+    queryset = Publisher.objects.all()
+    serializer_class = PublisherSerializer
 
 
 # Create your views here.
