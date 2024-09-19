@@ -10,8 +10,8 @@ import PublisherDetail from './components/PublisherDetail';
 function App() {
   return (
     <Router>
-      <Routes> {/* Use Routes instead of Switch */}
-        <Route path="/" element={<HomePage />} /> {/* Use element instead of component */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/books/:id" element={<BookDetail />} />
         <Route path="/authors/:id" element={<AuthorDetail />} />
         <Route path="/publishers/:id" element={<PublisherDetail />} />

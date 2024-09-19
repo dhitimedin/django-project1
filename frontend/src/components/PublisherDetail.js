@@ -7,7 +7,7 @@ const PublisherDetail = () => {
   const [publisher, setPublisher] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/books/api/publishers/${id}/`)
+    fetch(`http://localhost/books/api/publishers/${id}/`)
       .then(response => response.json())
       .then(data => setPublisher(data));
   }, [id]);

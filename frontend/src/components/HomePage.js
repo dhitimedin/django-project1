@@ -6,7 +6,7 @@ const HomePage = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/books/api/books/')
+    fetch('/books/api/books/')
       .then(response => response.json())
       .then(data => setBooks(data));
   }, []);

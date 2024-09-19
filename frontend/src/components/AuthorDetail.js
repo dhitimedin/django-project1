@@ -10,7 +10,7 @@ const AuthorDetail = () => {
   const [author, setAuthor] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/books/api/authors/${id}/`)
+    fetch(`http://localhost/books/api/authors/${id}/`)
       .then(response => response.json())
       .then(data => setAuthor(data));
   }, [id]);
