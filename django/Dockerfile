@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM python:3.12.5-alpine
 ENV PYTHONUNBUFFERED=1
 WORKDIR /django

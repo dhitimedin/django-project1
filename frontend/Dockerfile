@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 # Dockerfile for React App
 FROM node:18.20.4-alpine
 

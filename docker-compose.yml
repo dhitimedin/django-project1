@@ -25,8 +25,6 @@ services:
     volumes:
       - ./django:/django
       - ./django/staticfiles:/django/staticfiles # For static files
-    # ports:
-    #   - 8000:8000
     image: backend:django
     container_name: django_container
     environment:

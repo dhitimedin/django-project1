@@ -26,14 +26,14 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('time/', current_datetime, name='current_datetime'),
-    path('search/', search, name='search'),  # Added name for reverse URL lookup
-    path('contact/', contact, name='contact'),  # Added name for reverse URL lookup
-    path('authors/add/', add_author, name='add_author'),
-    path('publishers/add/', add_publisher, name='add_publisher'),
-    path('authors/', author_list, name='author_list'),
-    path('publishers/', publisher_list, name='publisher_list'),
-    path('contact/thanks/', contact_thanks, name='contact_thanks'),
+    # path('time/', current_datetime, name='current_datetime'),
+    # path('search/', search, name='search'),  # Added name for reverse URL lookup
+    # path('contact/', contact, name='contact'),  # Added name for reverse URL lookup
+    # path('authors/add/', add_author, name='add_author'),
+    # path('publishers/add/', add_publisher, name='add_publisher'),
+    # path('authors/', author_list, name='author_list'),
+    # path('publishers/', publisher_list, name='publisher_list'),
+    # path('contact/thanks/', contact_thanks, name='contact_thanks'),
     path('books/', include('books.urls')),
     re_path(r'^time/plus/(?P<hours>[0-9]{1,2})/$', hours_ahead, name='hours_ahead'),
 ]
